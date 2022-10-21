@@ -5,7 +5,7 @@
 
 assignInNamespace(
 	"loadVar", 
-	function(dir, verbose=FALSE, attach=FALSE){
+	function(dir, verbose=FALSE){
 		# read in the raster
 		pared <- readRDS(file.path(dir, "pbdb_occs.rds"))
 
