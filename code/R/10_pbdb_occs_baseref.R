@@ -1,0 +1,101 @@
+#' Function to load in a specific variable
+
+#' @param dir path to temporary directory.
+#' @param verbose  Should feedback be output to the console?
+#' @param attach  Should feedback be output to the console?
+assignInNamespace(
+	"loadVar", 
+	function(dir, verbose=FALSE, attach=FALSE){
+		# read in the raster
+		pbdb <- readRDS(file.path(dir, "pbdb_occs.rds"))
+
+		# subset columns to those reflected by the var
+		cols <- c(
+			"occurrence_no",
+			"record_type",
+			"reid_no",          
+			"flags",
+			"collection_no",
+			"identified_name",  
+			"identified_rank",
+			"identified_no",
+			"difference",       
+			"accepted_name",
+			"accepted_rank",
+			"accepted_no",      
+			"early_interval",
+			"late_interval",
+			"max_ma",           
+			"min_ma",
+			"ref_author",
+			"ref_pubyr",        
+			"reference_no",
+			"phylum",
+			"phylum_no",        
+			"class",
+			"class_no",
+			"order",            
+			"order_no",
+			"family",
+			"family_no",        
+			"genus",
+			"genus_no",
+			"subgenus_no",      
+			"collection_name",
+			"collection_subset",
+			"collection_aka",   
+			"lng",
+			"lat",
+			"cc",               
+			"state",
+			"county",
+			"latlng_basis",     
+			"latlng_precision",
+			"geogscale",
+			"geogcomments",     
+			"paleomodel",
+			"paleolng",
+			"paleolat",         
+			"geoplate",
+			"formation",
+			"stratgroup",       
+			"member",
+			"formation.1",
+			"stratgroup.1",     
+			"member.1",
+			"stratscale",
+			"zone",             
+			"localsection",
+			"localbed",
+			"localorder",       
+			"regionalsection",
+			"regionalbed",
+			"regionalorder",    
+			"stratcomments",
+			"lithdescript",
+			"lithology1",       
+			"lithification1",
+			"minor_lithology1",
+			"lithology2",       
+			"lithification2",
+			"minor_lithology2",
+			"environment",      
+			"primary_reference",
+			"created",
+			"modified",         
+			"time_bins",
+			"time_contain",
+			"time_major",       
+			"time_buffer",
+			"time_overlap",
+			"authorizer",       
+			"enterer",
+			"modifier")
+
+
+		return(pbdb[,cols])
+	}, 
+	ns="chronosphere")
+
+
+
